@@ -1,0 +1,6 @@
+{
+  "name": "Ecoverde Cleaning",
+  "description": "Premium botanical cleaning services landing page with interactive booking and quote estimator.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
