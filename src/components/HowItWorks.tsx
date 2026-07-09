@@ -1,4 +1,5 @@
 import { CalendarDays, Sparkles, Coffee } from "lucide-react";
+import { motion } from "motion/react";
 
 interface HowItWorksProps {
   onQuoteClick: () => void;
@@ -27,35 +28,83 @@ export default function HowItWorks({ onQuoteClick, onCallClick }: HowItWorksProp
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.18,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
   return (
-    <section id="how-it-works" className="py-20 bg-white scroll-mt-20">
+    <section id="how-it-works" className="py-20 bg-white scroll-mt-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         
         {/* Section Badge */}
-        <div className="flex justify-center mb-4">
+        <motion.div 
+          className="flex justify-center mb-4"
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+        >
           <span className="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-800 text-[10px] font-bold tracking-widest uppercase px-3.5 py-1.5 rounded-full border border-emerald-100">
             Ready To Start?
           </span>
-        </div>
+        </motion.div>
 
-        <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 tracking-tight leading-tight mb-4">
+        <motion.h2 
+          className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 tracking-tight leading-tight mb-4"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           Life Is Too Short To <span className="text-emerald-600 font-serif">Spend It Cleaning</span>
-        </h2>
+        </motion.h2>
         
-        <p className="font-sans text-slate-600 text-sm sm:text-base max-w-xl mx-auto mb-16">
+        <motion.p 
+          className="font-sans text-slate-600 text-sm sm:text-base max-w-xl mx-auto mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
           Upgrading to a spotless home is a simple three-step process designed entirely around your schedule.
-        </p>
+        </motion.p>
 
         {/* Steps container grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center max-w-5xl mx-auto mb-16 relative">
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center max-w-5xl mx-auto mb-16 relative"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
           
           {/* Subtle line background for steps in desktop */}
           <div className="hidden md:block absolute top-[44px] left-[15%] right-[15%] h-0.5 bg-slate-100 z-0"></div>
 
           {steps.map((step, idx) => (
-            <div key={idx} className="relative z-10 flex flex-col items-center">
+            <motion.div 
+              key={idx} 
+              variants={itemVariants}
+              className="relative z-10 flex flex-col items-center group"
+            >
               {/* Step Icon & Badge */}
-              <div className="h-14 w-14 rounded-full bg-slate-50 border border-slate-100 text-emerald-600 flex items-center justify-center shadow-sm mb-6 group hover:border-emerald-200 transition-all">
+              <div className="h-14 w-14 rounded-full bg-slate-50 border border-slate-100 text-emerald-600 flex items-center justify-center shadow-sm mb-6 group-hover:border-emerald-300 group-hover:bg-emerald-50/20 transition-all duration-300">
                 {step.icon}
               </div>
 
@@ -70,25 +119,31 @@ export default function HowItWorks({ onQuoteClick, onCallClick }: HowItWorksProp
               <p className="font-sans text-slate-500 text-sm leading-relaxed max-w-xs">
                 {step.desc}
               </p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <motion.div 
+          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
           <button
             onClick={onQuoteClick}
-            className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3.5 rounded-full font-sans text-sm font-semibold shadow-sm hover:shadow transition-all duration-200 cursor-pointer"
+            className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3.5 rounded-full font-sans text-sm font-semibold shadow-sm hover:shadow transition-all duration-200 cursor-pointer hover:scale-102 active:scale-98"
           >
             Get a Free Quote
           </button>
           <button
             onClick={onCallClick}
-            className="w-full sm:w-auto bg-white border border-slate-200 text-slate-800 hover:bg-slate-50 px-8 py-3.5 rounded-full font-sans text-sm font-semibold shadow-sm transition-all duration-200 cursor-pointer"
+            className="w-full sm:w-auto bg-white border border-slate-200 text-slate-800 hover:bg-slate-50 px-8 py-3.5 rounded-full font-sans text-sm font-semibold shadow-sm transition-all duration-200 cursor-pointer hover:scale-102 active:scale-98"
           >
             Call Now
           </button>
-        </div>
+        </motion.div>
 
       </div>
     </section>

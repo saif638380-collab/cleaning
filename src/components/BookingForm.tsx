@@ -1,5 +1,6 @@
 import { useState, ChangeEvent, FormEvent } from "react";
 import { Sparkles, CheckCircle2, Phone, Calculator, ClipboardList } from "lucide-react";
+import { motion } from "motion/react";
 import { BookingFormData } from "../types";
 
 interface BookingFormProps {
@@ -33,7 +34,7 @@ export default function BookingForm({ selectedService }: BookingFormProps) {
         basePrice = 299;
         break;
       case "Property Management":
-        basePrice = 199;
+        basePrice = 349;
         break;
       default:
         basePrice = 119;
@@ -60,28 +61,45 @@ export default function BookingForm({ selectedService }: BookingFormProps) {
   };
 
   return (
-    <section id="booking-section" className="py-20 bg-white scroll-mt-20">
+    <section id="booking-section" className="py-20 bg-white scroll-mt-20 overflow-hidden">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Badge */}
-        <div className="flex justify-center mb-4">
+        <motion.div 
+          className="flex justify-center mb-4"
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+        >
           <span className="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-800 text-[10px] font-bold tracking-widest uppercase px-3.5 py-1.5 rounded-full border border-emerald-100">
             Get a Quote
           </span>
-        </div>
+        </motion.div>
 
-        <div className="text-center max-w-2xl mx-auto mb-12">
+        <motion.div 
+          className="text-center max-w-2xl mx-auto mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 tracking-tight leading-tight mb-4">
             Ready for a <span className="text-emerald-600">Spotless Home?</span>
           </h2>
           <p className="font-sans text-slate-600 text-sm sm:text-base leading-relaxed">
             Send us a few quick details and we will reach out with the perfect cleaning solution for your space in under 15 minutes.
           </p>
-        </div>
+        </motion.div>
 
         {submitted ? (
           /* Successful booking feedback view */
-          <div className="bg-emerald-50/60 border border-emerald-100 p-8 sm:p-12 rounded-3xl text-center max-w-2xl mx-auto shadow-sm animate-fade-in">
+          <motion.div 
+            className="bg-emerald-50/60 border border-emerald-100 p-8 sm:p-12 rounded-3xl text-center max-w-2xl mx-auto shadow-sm"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+          >
             <div className="inline-flex items-center justify-center bg-emerald-100 text-emerald-700 p-4 rounded-full mb-6">
               <CheckCircle2 className="h-10 w-10" />
             </div>
@@ -119,10 +137,16 @@ export default function BookingForm({ selectedService }: BookingFormProps) {
             >
               Request Another Estimate
             </button>
-          </div>
+          </motion.div>
         ) : (
           /* Input Booking Form View */
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start bg-slate-50/50 p-6 sm:p-10 rounded-3xl border border-slate-100 shadow-lg">
+          <motion.div 
+            className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start bg-slate-50/50 p-6 sm:p-10 rounded-3xl border border-slate-100 shadow-lg"
+            initial={{ opacity: 0, y: 35, scale: 0.98 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          >
             
             {/* Form Input Section */}
             <form onSubmit={handleSubmit} className="lg:col-span-8 space-y-6">
@@ -300,7 +324,7 @@ export default function BookingForm({ selectedService }: BookingFormProps) {
               </div>
             </div>
 
-          </div>
+          </motion.div>
         )}
 
       </div>

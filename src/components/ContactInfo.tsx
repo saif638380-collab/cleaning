@@ -1,4 +1,5 @@
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { motion } from "motion/react";
 import cleaningStaff from "../assets/images/cleaning_specialist_1782628913400.jpg";
 
 interface ContactInfoProps {
@@ -34,33 +35,80 @@ export default function ContactInfo({ onCallClick, onMessageClick }: ContactInfo
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 15 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  };
+
   return (
-    <section id="contact-section" className="py-20 bg-white scroll-mt-20">
+    <section id="contact-section" className="py-20 bg-white scroll-mt-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Badge */}
-        <div className="flex justify-center mb-4">
+        <motion.div 
+          className="flex justify-center mb-4"
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+        >
           <span className="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-800 text-[10px] font-bold tracking-widest uppercase px-3.5 py-1.5 rounded-full border border-emerald-100">
             Contact Us
           </span>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Left Column: Title & 2x2 grids */}
           <div className="lg:col-span-7 flex flex-col justify-center">
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 tracking-tight leading-tight mb-5 text-center md:text-left">
+            <motion.h2 
+              className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 tracking-tight leading-tight mb-5 text-center md:text-left"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
               Need Help With Your <span className="text-emerald-600">Property?</span>
-            </h2>
+            </motion.h2>
             
-            <p className="font-sans text-slate-600 text-sm sm:text-base leading-relaxed mb-10 text-center md:text-left max-w-2xl">
+            <motion.p 
+              className="font-sans text-slate-600 text-sm sm:text-base leading-relaxed mb-10 text-center md:text-left max-w-2xl"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
               Tell us what needs cleaning, and our team will help you choose the right botanical cleaning service for your home or business.
-            </p>
+            </motion.p>
 
             {/* 2x2 Grid details */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
+            <motion.div 
+              className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+            >
               {contacts.map((c, idx) => (
-                <div key={idx} className="bg-slate-50/50 p-5 rounded-2xl border border-slate-100/80 hover:bg-emerald-50/10 hover:border-emerald-100/40 transition-all duration-300">
+                <motion.div 
+                  key={idx} 
+                  variants={itemVariants}
+                  className="bg-slate-50/50 p-5 rounded-2xl border border-slate-100/80 hover:bg-emerald-50/10 hover:border-emerald-100/40 transition-all duration-300"
+                >
                   <div className="flex items-start gap-4">
                     <div className="bg-emerald-50 p-2.5 rounded-xl h-fit text-emerald-600 mt-1">
                       {c.icon}
@@ -80,34 +128,46 @@ export default function ContactInfo({ onCallClick, onMessageClick }: ContactInfo
                       )}
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
 
             {/* Bottom Call Action buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
+            <motion.div 
+              className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4"
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
               <a
                 href="tel:9034203976"
-                className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3.5 rounded-full font-sans text-sm font-semibold text-center shadow-sm hover:shadow transition-all duration-200 cursor-pointer"
+                className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3.5 rounded-full font-sans text-sm font-semibold text-center shadow-sm hover:shadow transition-all duration-200 cursor-pointer hover:scale-102 active:scale-98"
               >
                 Call Now
               </a>
               <button
                 onClick={onMessageClick}
-                className="w-full sm:w-auto bg-white border border-slate-200 text-slate-800 hover:bg-slate-50 px-8 py-3.5 rounded-full font-sans text-sm font-semibold shadow-sm transition-all duration-200 cursor-pointer"
+                className="w-full sm:w-auto bg-white border border-slate-200 text-slate-800 hover:bg-slate-50 px-8 py-3.5 rounded-full font-sans text-sm font-semibold shadow-sm transition-all duration-200 cursor-pointer hover:scale-102 active:scale-98"
               >
                 Send a Message
               </button>
-            </div>
+            </motion.div>
           </div>
 
           {/* Right Column: Visual photo with quick badge */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-white">
+          <motion.div 
+            className="lg:col-span-5 relative"
+            initial={{ opacity: 0, x: 40, scale: 0.95 }}
+            whileInView={{ opacity: 1, x: 0, scale: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-white group">
               <img
                 src={cleaningStaff}
                 alt="Friendly botanical cleaner"
-                className="w-full h-[320px] sm:h-[400px] md:h-[450px] object-cover"
+                className="w-full h-[320px] sm:h-[400px] md:h-[450px] object-cover group-hover:scale-103 transition-transform duration-700 ease-out"
                 referrerPolicy="no-referrer"
               />
               
@@ -120,7 +180,7 @@ export default function ContactInfo({ onCallClick, onMessageClick }: ContactInfo
                 ⭐ Real local experts
               </div>
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </div>

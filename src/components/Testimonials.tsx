@@ -1,4 +1,5 @@
 import { Star } from "lucide-react";
+import { motion } from "motion/react";
 
 export default function Testimonials() {
   const reviews = [
@@ -19,30 +20,75 @@ export default function Testimonials() {
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30, scale: 0.98 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
   return (
-    <section id="testimonials" className="py-20 bg-white scroll-mt-20">
+    <section id="testimonials" className="py-20 bg-white scroll-mt-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         
         {/* Section Badge */}
-        <div className="flex justify-center mb-4">
+        <motion.div 
+          className="flex justify-center mb-4"
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+        >
           <span className="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-800 text-[10px] font-bold tracking-widest uppercase px-3.5 py-1.5 rounded-full border border-emerald-100">
             Our Reputation
           </span>
-        </div>
+        </motion.div>
 
-        <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 tracking-tight leading-tight mb-4">
+        <motion.h2 
+          className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 tracking-tight leading-tight mb-4"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           See What Your <span className="text-emerald-600">Neighbors Are Saying</span>
-        </h2>
+        </motion.h2>
         
-        <p className="font-sans text-slate-600 text-sm sm:text-base max-w-xl mx-auto mb-16">
+        <motion.p 
+          className="font-sans text-slate-600 text-sm sm:text-base max-w-xl mx-auto mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
           Read real reviews from satisfied homeowners who upgraded to non-toxic, spotless botanical cleaning.
-        </p>
+        </motion.p>
 
         {/* Testimonials cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
           {reviews.map((rev, idx) => (
-            <div
+            <motion.div
               key={idx}
+              variants={cardVariants}
               className="bg-slate-50/50 p-8 rounded-2xl border border-slate-100/80 flex flex-col justify-between hover:shadow-lg hover:border-emerald-100/50 transition-all duration-300 relative group"
             >
               <div>
@@ -69,9 +115,9 @@ export default function Testimonials() {
                   <p className="font-sans text-[10px] text-emerald-600 font-semibold tracking-wider uppercase leading-none">Verified Customer</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
       </div>
     </section>

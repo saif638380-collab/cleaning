@@ -1,4 +1,5 @@
 import { Check, ArrowRight } from "lucide-react";
+import { motion } from "motion/react";
 import cleaningSpecialist from "../assets/images/cleaning_specialist_1782628913400.jpg";
 
 interface ServicesProps {
@@ -29,26 +30,78 @@ export default function Services({ onServiceSelect }: ServicesProps) {
     },
   ];
 
+  // Grid container stagger variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 24, scale: 0.98 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  };
+
+  const imageVariants = {
+    hidden: { opacity: 0, x: -40, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      scale: 1,
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
+    },
+  };
+
+  const textVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
   return (
-    <section id="services" className="py-20 bg-slate-50/50 scroll-mt-20">
+    <section id="services" className="py-20 bg-slate-50/50 scroll-mt-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Badge */}
-        <div className="flex justify-center md:justify-start mb-4">
+        <motion.div 
+          className="flex justify-center md:justify-start mb-4"
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+        >
           <span className="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-800 text-[10px] font-bold tracking-widest uppercase px-3.5 py-1.5 rounded-full border border-emerald-100">
             Our Services
           </span>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Left Column: Big Image & Badges */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-white">
+          <motion.div 
+            className="lg:col-span-5 relative"
+            variants={imageVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-white group">
               <img
                 src={cleaningSpecialist}
                 alt="Eco-friendly cleaning professional"
-                className="w-full h-[350px] sm:h-[450px] md:h-[500px] object-cover"
+                className="w-full h-[350px] sm:h-[450px] md:h-[500px] object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 referrerPolicy="no-referrer"
               />
               
@@ -62,26 +115,40 @@ export default function Services({ onServiceSelect }: ServicesProps) {
                 Trusted Professionals
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column: Title & Services Grid */}
           <div className="lg:col-span-7 flex flex-col justify-center">
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 tracking-tight leading-tight mb-5 text-center md:text-left">
-              Complete Cleaning Solutions <br />
-              <span className="text-emerald-600 font-serif">for Every Need.</span>
-            </h2>
-            
-            <p className="font-sans text-slate-600 text-sm sm:text-base leading-relaxed mb-10 text-center md:text-left max-w-2xl">
-              From delicate residential cleaning to deep commercial standards through the convenience of online scheduling, we help homes and businesses look cleaner, brighter, and better maintained.
-            </p>
+            <motion.div
+              variants={textVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+            >
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 tracking-tight leading-tight mb-5 text-center md:text-left">
+                Complete Cleaning Solutions <br />
+                <span className="text-emerald-600 font-serif">for Every Need.</span>
+              </h2>
+              
+              <p className="font-sans text-slate-600 text-sm sm:text-base leading-relaxed mb-10 text-center md:text-left max-w-2xl">
+                From delicate residential cleaning to deep commercial standards through the convenience of online scheduling, we help homes and businesses look cleaner, brighter, and better maintained.
+              </p>
+            </motion.div>
 
             {/* Grid of service cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <motion.div 
+              className="grid grid-cols-1 sm:grid-cols-2 gap-6"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+            >
               {services.map((srv) => (
-                <div
+                <motion.div
                   key={srv.num}
+                  variants={cardVariants}
                   onClick={() => onServiceSelect(srv.title)}
-                  className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:border-emerald-100 transition-all duration-300 group cursor-pointer flex flex-col justify-between"
+                  className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:border-emerald-100 transition-all duration-300 group cursor-pointer flex flex-col justify-between hover:scale-[1.01]"
                 >
                   <div>
                     {/* Number badge */}
@@ -96,23 +163,29 @@ export default function Services({ onServiceSelect }: ServicesProps) {
                     </p>
                   </div>
                   
-                  <div className="mt-5 flex items-center gap-1.5 text-xs font-semibold text-emerald-600 group-hover:translate-x-1 transition-transform">
+                  <div className="mt-5 flex items-center gap-1.5 text-xs font-semibold text-emerald-600 group-hover:translate-x-1.5 transition-transform">
                     <span>Select Service</span>
                     <ArrowRight className="h-3.5 w-3.5" />
                   </div>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
 
             {/* Bottom Call to Action */}
-            <div className="mt-10 flex justify-center md:justify-start">
+            <motion.div 
+              className="mt-10 flex justify-center md:justify-start"
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
               <button
                 onClick={() => onServiceSelect("Standard Cleaning")}
-                className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3.5 rounded-full font-sans text-sm font-semibold shadow-sm hover:shadow transition-all duration-200"
+                className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3.5 rounded-full font-sans text-sm font-semibold shadow-sm hover:shadow transition-all duration-200 cursor-pointer hover:scale-102 active:scale-98"
               >
                 Call Now
               </button>
-            </div>
+            </motion.div>
 
           </div>
         </div>

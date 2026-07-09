@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { ArrowLeftRight } from "lucide-react";
+import { motion } from "motion/react";
 import cleanKitchenHero from "../assets/images/clean_kitchen_hero_1782628881148.jpg";
 
 export default function BeforeAfter() {
@@ -41,28 +42,50 @@ export default function BeforeAfter() {
   }, []);
 
   return (
-    <section id="before-after" className="py-20 bg-slate-50/50 scroll-mt-20">
+    <section id="before-after" className="py-20 bg-slate-50/50 scroll-mt-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         
         {/* Section Badge */}
-        <div className="flex justify-center mb-4">
+        <motion.div 
+          className="flex justify-center mb-4"
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+        >
           <span className="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-800 text-[10px] font-bold tracking-widest uppercase px-3.5 py-1.5 rounded-full border border-emerald-100">
             Real Results
           </span>
-        </div>
+        </motion.div>
 
-        <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 tracking-tight mb-4">
+        <motion.h2 
+          className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 tracking-tight mb-4"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           Before & <span className="text-emerald-600">After.</span>
-        </h2>
+        </motion.h2>
         
-        <p className="font-sans text-slate-600 text-sm sm:text-base max-w-xl mx-auto mb-12">
+        <motion.p 
+          className="font-sans text-slate-600 text-sm sm:text-base max-w-xl mx-auto mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
           Drag the interactive slider below to see the incredible difference of our professional botanical deep cleaning.
-        </p>
+        </motion.p>
 
         {/* Interactive Comparison Slider Container */}
-        <div
+        <motion.div
           ref={containerRef}
           className="relative max-w-4xl mx-auto h-[350px] sm:h-[450px] md:h-[500px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl border border-slate-200 select-none cursor-ew-resize"
+          initial={{ opacity: 0, y: 35, scale: 0.98 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           onMouseDown={(e) => {
             isDragging.current = true;
             handleMove(e.clientX);
@@ -125,12 +148,18 @@ export default function BeforeAfter() {
               <ArrowLeftRight className="h-4 w-4" />
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Tip */}
-        <p className="font-mono text-xs text-slate-400 mt-6">
+        <motion.p 
+          className="font-mono text-xs text-slate-400 mt-6"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
+        >
           ← Swipe / drag the divider to compare the spotless finish →
-        </p>
+        </motion.p>
 
       </div>
     </section>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChevronDown, Phone, HelpCircle } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -23,13 +24,38 @@ export default function FAQ() {
     },
   ];
 
+  const listContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const listItemVariants = {
+    hidden: { opacity: 0, y: 15 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  };
+
   return (
-    <section id="faq-section" className="py-20 bg-slate-50/50 scroll-mt-20">
+    <section id="faq-section" className="py-20 bg-slate-50/50 scroll-mt-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
           {/* Left Column: Call out card */}
-          <div className="lg:col-span-5 bg-gradient-to-br from-emerald-800 to-emerald-950 text-white p-8 sm:p-10 rounded-3xl border border-emerald-800 shadow-xl flex flex-col justify-between space-y-8">
+          <motion.div 
+            className="lg:col-span-5 bg-gradient-to-br from-emerald-800 to-emerald-950 text-white p-8 sm:p-10 rounded-3xl border border-emerald-800 shadow-xl flex flex-col justify-between space-y-8"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          >
             <div className="space-y-4">
               <div className="inline-flex items-center gap-1.5 bg-emerald-700/60 text-emerald-200 text-[10px] font-mono tracking-widest uppercase px-3.5 py-1.5 rounded-full border border-emerald-600/50">
                 Got Questions? We've Got Answers
@@ -53,15 +79,22 @@ export default function FAQ() {
                 (903) 420-3976
               </a>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column: Accordion Lists */}
-          <div className="lg:col-span-7 space-y-4">
+          <motion.div 
+            className="lg:col-span-7 space-y-4"
+            variants={listContainerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+          >
             {faqs.map((faq, idx) => {
               const isOpen = openIndex === idx;
               return (
-                <div
+                <motion.div
                   key={idx}
+                  variants={listItemVariants}
                   className="bg-white border border-slate-100 rounded-2xl shadow-sm overflow-hidden transition-all duration-300"
                 >
                   <button
@@ -79,15 +112,25 @@ export default function FAQ() {
                     />
                   </button>
                   
-                  {isOpen && (
-                    <div className="px-6 pb-6 pt-1 border-t border-slate-50 font-sans text-xs sm:text-sm text-slate-600 leading-relaxed animate-fade-in">
-                      {faq.a}
-                    </div>
-                  )}
-                </div>
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="overflow-hidden"
+                      >
+                        <div className="px-6 pb-6 pt-1 border-t border-slate-50 font-sans text-xs sm:text-sm text-slate-600 leading-relaxed">
+                          {faq.a}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
               );
             })}
-          </div>
+          </motion.div>
 
         </div>
       </div>
