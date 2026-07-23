@@ -1,6 +1,7 @@
 import { Check, ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
-import cleaningSpecialist from "../assets/images/cleaning_specialist_1782628913400.jpg";
+import upholsteryCleaningImg from "../assets/images/upholstery_cleaning_1784816907791.jpg";
+import ScrollZoomImage from "./ScrollZoomImage";
 
 interface ServicesProps {
   onServiceSelect: (serviceName: string) => void;
@@ -10,23 +11,23 @@ export default function Services({ onServiceSelect }: ServicesProps) {
   const services = [
     {
       num: "01",
-      title: "Deep Cleaning",
-      desc: "Thorough cleaning of every corner, perfect for a fresh start.",
+      title: "Sofa & Upholstery Steam Clean",
+      desc: "Deep hot water steam extraction for couches, sectionals, armchairs, and dining chairs.",
     },
     {
       num: "02",
-      title: "Move-In/Out Cleaning",
-      desc: "Ensure your new or old home is spotless for the next chapter.",
+      title: "Wall-to-Wall Carpet Extraction",
+      desc: "Revitalize high-traffic home and office carpets with deep fiber soil removal.",
     },
     {
       num: "03",
-      title: "Commercial Cleaning",
-      desc: "Keep your office or commercial space pristine and professional.",
+      title: "Pet Stain & Odor Treatment",
+      desc: "Enzymatic deep neutralization that eliminates stubborn organic stains and pet smells.",
     },
     {
       num: "04",
-      title: "Property Management",
-      desc: "Reliable cleaning partnerships for property managers.",
+      title: "Fine Area Rug & Wool Care",
+      desc: "Gentle yet deep cleansing tailored for delicate wool, Persian, and silk area rugs.",
     },
   ];
 
@@ -83,39 +84,32 @@ export default function Services({ onServiceSelect }: ServicesProps) {
           transition={{ duration: 0.5 }}
         >
           <span className="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-800 text-[10px] font-bold tracking-widest uppercase px-3.5 py-1.5 rounded-full border border-emerald-100">
-            Our Services
+            Specialized Care
           </span>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Left Column: Big Image & Badges */}
-          <motion.div 
-            className="lg:col-span-5 relative"
-            variants={imageVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-          >
+          <div className="lg:col-span-5 relative">
             <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-white group">
-              <img
-                src={cleaningSpecialist}
-                alt="Eco-friendly cleaning professional"
-                className="w-full h-[350px] sm:h-[450px] md:h-[500px] object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                referrerPolicy="no-referrer"
+              <ScrollZoomImage
+                src={upholsteryCleaningImg}
+                alt="Hot water steam extraction sofa cleaning specialist"
+                imgClassName="h-[350px] sm:h-[450px] md:h-[500px]"
               />
               
               {/* Badges overlaid on image */}
-              <div className="absolute top-4 left-4 bg-emerald-900/90 text-white text-[10px] font-mono tracking-wider uppercase font-semibold px-3.5 py-1.5 rounded-full backdrop-blur-sm">
-                Spotless Interior Cleaning
+              <div className="absolute top-4 left-4 bg-emerald-900/90 text-white text-[10px] font-mono tracking-wider uppercase font-semibold px-3.5 py-1.5 rounded-full backdrop-blur-sm z-10">
+                Advanced Steam Extraction
               </div>
               
-              <div className="absolute bottom-4 right-4 bg-white/95 text-slate-900 text-[10px] font-mono tracking-wider uppercase font-bold px-4 py-2 rounded-xl shadow-md border border-slate-100 flex items-center gap-1.5 backdrop-blur-sm">
+              <div className="absolute bottom-4 right-4 bg-white/95 text-slate-900 text-[10px] font-mono tracking-wider uppercase font-bold px-4 py-2 rounded-xl shadow-md border border-slate-100 flex items-center gap-1.5 backdrop-blur-sm z-10">
                 <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                Trusted Professionals
+                Certified Upholstery Techs
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Right Column: Title & Services Grid */}
           <div className="lg:col-span-7 flex flex-col justify-center">
@@ -126,12 +120,12 @@ export default function Services({ onServiceSelect }: ServicesProps) {
               viewport={{ once: true, margin: "-100px" }}
             >
               <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 tracking-tight leading-tight mb-5 text-center md:text-left">
-                Complete Cleaning Solutions <br />
-                <span className="text-emerald-600 font-serif">for Every Need.</span>
+                Expert Sofa & Carpet Care <br />
+                <span className="text-emerald-600 font-serif">Deep Cleaned & Restored.</span>
               </h2>
               
               <p className="font-sans text-slate-600 text-sm sm:text-base leading-relaxed mb-10 text-center md:text-left max-w-2xl">
-                From delicate residential cleaning to deep commercial standards through the convenience of online scheduling, we help homes and businesses look cleaner, brighter, and better maintained.
+                We remove years of trapped dust, allergen buildup, tough food spills, and pet dander from your sofas and carpets without harsh chemical residues.
               </p>
             </motion.div>
 
@@ -180,10 +174,10 @@ export default function Services({ onServiceSelect }: ServicesProps) {
               transition={{ duration: 0.5, delay: 0.3 }}
             >
               <button
-                onClick={() => onServiceSelect("Standard Cleaning")}
+                onClick={() => onServiceSelect("Sofa & Upholstery Steam Clean")}
                 className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3.5 rounded-full font-sans text-sm font-semibold shadow-sm hover:shadow transition-all duration-200 cursor-pointer hover:scale-102 active:scale-98"
               >
-                Call Now
+                Estimate Your Price
               </button>
             </motion.div>
 

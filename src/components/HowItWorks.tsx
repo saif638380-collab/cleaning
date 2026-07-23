@@ -1,4 +1,4 @@
-import { CalendarDays, Sparkles, Coffee } from "lucide-react";
+import { CalendarDays, Sparkles, Armchair } from "lucide-react";
 import { motion } from "motion/react";
 
 interface HowItWorksProps {
@@ -11,20 +11,20 @@ export default function HowItWorks({ onQuoteClick, onCallClick }: HowItWorksProp
     {
       num: "01",
       icon: <CalendarDays className="h-6 w-6 text-emerald-600" />,
-      title: "You Book",
-      desc: "Select best day & time. We're open Monday-Saturday, 8AM-5PM.",
+      title: "Schedule Your Service",
+      desc: "Select your sofa size or carpet room count and choose a convenient time slot online.",
     },
     {
       num: "02",
       icon: <Sparkles className="h-6 w-6 text-emerald-600" />,
-      title: "We Clean",
-      desc: "Our trained Cleaning Techs bring all the botanical products and tools to complete the service.",
+      title: "Deep Steam Extraction",
+      desc: "Our master technicians pre-treat stains and extract deep-seated dirt with non-toxic botanical solutions.",
     },
     {
       num: "03",
-      icon: <Coffee className="h-6 w-6 text-emerald-600" />,
-      title: "You Relax",
-      desc: "Enjoy your free time doing what matters most to you. Let us handle the dust.",
+      icon: <Armchair className="h-6 w-6 text-emerald-600" />,
+      title: "Enjoy Fresh Furniture",
+      desc: "Relax on clean, restored sofas and soft allergen-free carpets with fast 2-hour dry times.",
     },
   ];
 
@@ -61,7 +61,7 @@ export default function HowItWorks({ onQuoteClick, onCallClick }: HowItWorksProp
           transition={{ duration: 0.5 }}
         >
           <span className="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-800 text-[10px] font-bold tracking-widest uppercase px-3.5 py-1.5 rounded-full border border-emerald-100">
-            Ready To Start?
+            Simple 3-Step Process
           </span>
         </motion.div>
 
@@ -72,7 +72,7 @@ export default function HowItWorks({ onQuoteClick, onCallClick }: HowItWorksProp
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          Life Is Too Short To <span className="text-emerald-600 font-serif">Spend It Cleaning</span>
+          Revitalize Your Living Space <span className="text-emerald-600 font-serif">In 3 Easy Steps</span>
         </motion.h2>
         
         <motion.p 
@@ -82,7 +82,7 @@ export default function HowItWorks({ onQuoteClick, onCallClick }: HowItWorksProp
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          Upgrading to a spotless home is a simple three-step process designed entirely around your schedule.
+          Upgrading your home's upholstery and carpets is seamless with our certified technicians.
         </motion.p>
 
         {/* Steps container grid */}
@@ -135,7 +135,7 @@ export default function HowItWorks({ onQuoteClick, onCallClick }: HowItWorksProp
             onClick={onQuoteClick}
             className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3.5 rounded-full font-sans text-sm font-semibold shadow-sm hover:shadow transition-all duration-200 cursor-pointer hover:scale-102 active:scale-98"
           >
-            Get a Free Quote
+            Get a Free Estimate
           </button>
           <button
             onClick={onCallClick}

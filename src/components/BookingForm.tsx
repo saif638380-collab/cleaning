@@ -12,7 +12,7 @@ export default function BookingForm({ selectedService }: BookingFormProps) {
     fullName: "",
     phone: "",
     email: "",
-    serviceNeeded: selectedService || "Standard Cleaning",
+    serviceNeeded: selectedService || "Sofa & Upholstery Steam Clean",
     propertyAddress: "",
     details: "",
   });
@@ -20,24 +20,25 @@ export default function BookingForm({ selectedService }: BookingFormProps) {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  // Simple pricing algorithm for dynamic client estimation
+  // Simple pricing algorithm for dynamic sofa & carpet estimation
   const getEstimation = () => {
-    let basePrice = 119;
+    let basePrice = 129;
     switch (formData.serviceNeeded) {
-      case "Deep Cleaning":
-        basePrice = 189;
+      case "Wall-to-Wall Carpet Extraction":
+        basePrice = 169;
         break;
-      case "Move-In/Out Cleaning":
-        basePrice = 249;
+      case "Pet Stain & Odor Treatment":
+        basePrice = 149;
         break;
-      case "Commercial Cleaning":
+      case "Fine Area Rug & Wool Care":
+        basePrice = 139;
+        break;
+      case "Commercial Carpet Cleaning":
         basePrice = 299;
         break;
-      case "Property Management":
-        basePrice = 349;
-        break;
+      case "Sofa & Upholstery Steam Clean":
       default:
-        basePrice = 119;
+        basePrice = 129;
     }
     return basePrice;
   };
@@ -85,10 +86,10 @@ export default function BookingForm({ selectedService }: BookingFormProps) {
           transition={{ duration: 0.6 }}
         >
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 tracking-tight leading-tight mb-4">
-            Ready for a <span className="text-emerald-600">Spotless Home?</span>
+            Ready for Fresh <span className="text-emerald-600">Sofas & Carpets?</span>
           </h2>
           <p className="font-sans text-slate-600 text-sm sm:text-base leading-relaxed">
-            Send us a few quick details and we will reach out with the perfect cleaning solution for your space in under 15 minutes.
+            Send us a few quick details and we will reach out with the perfect sofa and carpet steam restoration estimate in under 15 minutes.
           </p>
         </motion.div>
 
@@ -215,11 +216,11 @@ export default function BookingForm({ selectedService }: BookingFormProps) {
                     onChange={handleInputChange}
                     className="w-full bg-white border border-slate-200 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-xl px-4 py-3 text-slate-800 text-sm transition-all outline-none"
                   >
-                    <option value="Standard Cleaning">Standard Cleaning</option>
-                    <option value="Deep Cleaning">Deep Cleaning</option>
-                    <option value="Move-In/Out Cleaning">Move-In/Out Cleaning</option>
-                    <option value="Commercial Cleaning">Commercial Cleaning</option>
-                    <option value="Property Management">Property Management</option>
+                    <option value="Sofa & Upholstery Steam Clean">Sofa & Upholstery Steam Clean</option>
+                    <option value="Wall-to-Wall Carpet Extraction">Wall-to-Wall Carpet Extraction</option>
+                    <option value="Pet Stain & Odor Treatment">Pet Stain & Odor Treatment</option>
+                    <option value="Fine Area Rug & Wool Care">Fine Area Rug & Wool Care</option>
+                    <option value="Commercial Carpet Cleaning">Commercial Carpet Cleaning</option>
                   </select>
                 </div>
               </div>
@@ -251,7 +252,7 @@ export default function BookingForm({ selectedService }: BookingFormProps) {
                   value={formData.details}
                   onChange={handleInputChange}
                   rows={4}
-                  placeholder="Tell us about the spaces you want cleaned (bedrooms, bathrooms, pets, specific clean requests...)"
+                  placeholder="Tell us about your furniture or carpets (e.g. 3-seater sectional sofa, velvet armchair, 2 bedroom carpets, pet stain locations...)"
                   className="w-full bg-white border border-slate-200 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-xl px-4 py-3 text-slate-800 text-sm transition-all outline-none resize-none"
                 ></textarea>
               </div>

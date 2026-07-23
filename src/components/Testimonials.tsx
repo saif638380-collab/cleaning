@@ -6,17 +6,17 @@ export default function Testimonials() {
     {
       name: "Sarah M.",
       initial: "S",
-      text: "I have been sick and didn't have the energy to clean. Ecoverde did a wonderful job on deep cleaning my bathroom and cleaning my house. It was a huge relief!",
+      text: "Our cream velvet sectional sofa had multiple dark coffee and pet stains. Ecoverde brought it back to brand-new condition in under two hours! Amazing botanical steam extraction.",
     },
     {
       name: "Jason T.",
       initial: "J",
-      text: "The team was professional, on time, and left my home spotless. I love that they use eco-friendly botanical products!",
+      text: "We had red wine spilled on our wool living room carpet during a dinner party. Ecoverde came out the next day and completely lifted the stain with zero chemical smell. Highly recommend!",
     },
     {
       name: "Emily R.",
       initial: "E",
-      text: "Best cleaning service I've ever used. Their attention to detail is unmatched. Everything is incredibly clean, and the subtle lavender botanical scent is amazing.",
+      text: "Best carpet and sofa cleaning service in town. They eliminated persistent pet odor from our rugs and left our living room smelling so fresh and clean. Safe for my toddlers too!",
     },
   ];
 
@@ -74,7 +74,7 @@ export default function Testimonials() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          Read real reviews from satisfied homeowners who upgraded to non-toxic, spotless botanical cleaning.
+          Read real reviews from satisfied homeowners who upgraded to non-toxic, deep sofa and carpet restoration.
         </motion.p>
 
         {/* Testimonials cards grid */}

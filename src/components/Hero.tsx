@@ -1,6 +1,7 @@
 import { Star } from "lucide-react";
 import { motion } from "motion/react";
-import cleanKitchenHero from "../assets/images/clean_kitchen_hero_1782628881148.jpg";
+import sofaCarpetHero from "../assets/images/sofa_carpet_hero_1784816891153.jpg";
+import ScrollZoomImage from "./ScrollZoomImage";
 
 interface HeroProps {
   onQuoteClick: () => void;
@@ -56,7 +57,7 @@ export default function Hero({ onQuoteClick, onCallClick }: HeroProps) {
           variants={itemVariants}
         >
           <span>🍃</span>
-          <span className="uppercase tracking-wider">Experience Botanical Purity</span>
+          <span className="uppercase tracking-wider">Botanical Sofa & Carpet Steam Care</span>
         </motion.div>
 
         {/* Dynamic Typography Title */}
@@ -64,8 +65,8 @@ export default function Hero({ onQuoteClick, onCallClick }: HeroProps) {
           className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 max-w-4xl mx-auto leading-[1.1] mb-6"
           variants={itemVariants}
         >
-          <span className="text-emerald-600">Spotless Homes</span> for Modern Families,{" "}
-          <span className="text-amber-600 block sm:inline">Rooted in Nature.</span>
+          <span className="text-emerald-600">Restored Sofas & Carpets</span> for Healthy Homes,{" "}
+          <span className="text-amber-600 block sm:inline">100% Non-Toxic.</span>
         </motion.h1>
 
         {/* Subtitle */}
@@ -73,7 +74,7 @@ export default function Hero({ onQuoteClick, onCallClick }: HeroProps) {
           className="font-sans text-base sm:text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed mb-10"
           variants={itemVariants}
         >
-          We change the way you think about cleaning. Experience a spotless botanical home in just 60 seconds with our certified green specialists.
+          Revitalize your furniture and carpets with hot water steam extraction, pet stain neutralization, and allergen-free organic botanical formulas.
         </motion.p>
 
         {/* Action CTAs */}
@@ -85,7 +86,7 @@ export default function Hero({ onQuoteClick, onCallClick }: HeroProps) {
             onClick={onQuoteClick}
             className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-full font-sans text-base font-semibold shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
           >
-            Get a Free Quote
+            Get an Instant Quote
           </button>
           <button
             onClick={onCallClick}
@@ -106,7 +107,7 @@ export default function Hero({ onQuoteClick, onCallClick }: HeroProps) {
             ))}
           </div>
           <p className="font-sans text-xs md:text-sm font-medium text-slate-500">
-            Customers rate us <span className="font-bold text-slate-800">4.9/5.0</span> based on <span className="font-bold text-slate-800">2,437 reviews</span>
+            Homeowners rate our sofa & carpet cleaning <span className="font-bold text-slate-800">4.9/5.0</span> based on <span className="font-bold text-slate-800">2,437 reviews</span>
           </p>
           <div className="flex items-center gap-8 mt-2 opacity-75 grayscale hover:grayscale-0 transition-all duration-300">
             <span className="font-sans text-sm font-bold tracking-tight text-slate-600">yelp</span>
@@ -120,11 +121,10 @@ export default function Hero({ onQuoteClick, onCallClick }: HeroProps) {
           className="max-w-5xl mx-auto rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl shadow-slate-200/50 border border-slate-100"
           variants={imageVariants}
         >
-          <img
-            src={cleanKitchenHero}
-            alt="Spotless clean kitchen"
-            className="w-full h-[300px] sm:h-[400px] md:h-[500px] object-cover hover:scale-102 transition-transform duration-700 ease-out"
-            referrerPolicy="no-referrer"
+          <ScrollZoomImage
+            src={sofaCarpetHero}
+            alt="Spotless steam cleaned sofa and carpet living room"
+            imgClassName="h-[300px] sm:h-[400px] md:h-[500px]"
           />
         </motion.div>
       </motion.div>
@@ -133,25 +133,28 @@ export default function Hero({ onQuoteClick, onCallClick }: HeroProps) {
       <div className="bg-emerald-900 text-emerald-100 py-5 mt-16 overflow-hidden border-y border-emerald-800 select-none">
         <div className="flex whitespace-nowrap gap-12 animate-marquee">
           <div className="flex items-center gap-12 text-xs md:text-sm font-mono tracking-widest uppercase font-semibold">
-            <span>● Standard Cleaning</span>
-            <span>● Deep Cleaning</span>
-            <span>● Move-In / Move-Out</span>
-            <span>● Post-Construction</span>
-            <span>● Eco-Friendly Botanical Products</span>
+            <span>● Sectional & Sofa Steam Cleaning</span>
+            <span>● Wall-to-Wall Carpet Deep Extraction</span>
+            <span>● Pet Stain & Odor Elimination</span>
+            <span>● Wool & Fine Area Rug Care</span>
+            <span>● Quick 2-Hour Dry Time</span>
+            <span>● Botanical Non-Toxic Formulas</span>
           </div>
           <div className="flex items-center gap-12 text-xs md:text-sm font-mono tracking-widest uppercase font-semibold" aria-hidden="true">
-            <span>● Standard Cleaning</span>
-            <span>● Deep Cleaning</span>
-            <span>● Move-In / Move-Out</span>
-            <span>● Post-Construction</span>
-            <span>● Eco-Friendly Botanical Products</span>
+            <span>● Sectional & Sofa Steam Cleaning</span>
+            <span>● Wall-to-Wall Carpet Deep Extraction</span>
+            <span>● Pet Stain & Odor Elimination</span>
+            <span>● Wool & Fine Area Rug Care</span>
+            <span>● Quick 2-Hour Dry Time</span>
+            <span>● Botanical Non-Toxic Formulas</span>
           </div>
           <div className="flex items-center gap-12 text-xs md:text-sm font-mono tracking-widest uppercase font-semibold" aria-hidden="true">
-            <span>● Standard Cleaning</span>
-            <span>● Deep Cleaning</span>
-            <span>● Move-In / Move-Out</span>
-            <span>● Post-Construction</span>
-            <span>● Eco-Friendly Botanical Products</span>
+            <span>● Sectional & Sofa Steam Cleaning</span>
+            <span>● Wall-to-Wall Carpet Deep Extraction</span>
+            <span>● Pet Stain & Odor Elimination</span>
+            <span>● Wool & Fine Area Rug Care</span>
+            <span>● Quick 2-Hour Dry Time</span>
+            <span>● Botanical Non-Toxic Formulas</span>
           </div>
         </div>
       </div>

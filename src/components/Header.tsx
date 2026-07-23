@@ -35,10 +35,10 @@ export default function Header({ onBookClick, onContactClick, onServicesClick }:
             </div>
             <div className="flex flex-col">
               <span className="font-sans font-bold text-lg leading-tight tracking-tight text-slate-900">
-                ecoverde
+                Prime Carpet Solution
               </span>
               <span className="font-mono text-[9px] uppercase tracking-widest text-emerald-600 font-semibold leading-none">
-                cleaning
+                Sofa & Carpet Restoration
               </span>
             </div>
           </div>
@@ -68,11 +68,11 @@ export default function Header({ onBookClick, onContactClick, onServicesClick }:
           {/* Right side CTA actions */}
           <div className="hidden md:flex items-center gap-5">
             <a
-              href="tel:9034203976"
+              href="tel:2409181700"
               className="flex items-center gap-2 font-sans text-sm font-semibold text-slate-800 hover:text-emerald-600 transition-colors"
             >
               <Phone className="h-4 w-4 text-emerald-600" />
-              (903) 420 3976
+              (240) 918-1700
             </a>
             <button
               onClick={onBookClick}
@@ -85,7 +85,7 @@ export default function Header({ onBookClick, onContactClick, onServicesClick }:
           {/* Mobile menu toggle */}
           <div className="md:hidden flex items-center gap-3">
             <a
-              href="tel:9034203976"
+              href="tel:2409181700"
               className="p-2 text-slate-700 hover:text-emerald-600 transition-colors"
               aria-label="Call Ecoverde"
             >
@@ -135,11 +135,11 @@ export default function Header({ onBookClick, onContactClick, onServicesClick }:
           <hr className="border-slate-100" />
           <div className="flex flex-col gap-3 px-3">
             <a
-              href="tel:9034203976"
+              href="tel:2409181700"
               className="flex items-center gap-2 font-sans text-sm font-semibold text-slate-800"
             >
               <Phone className="h-4 w-4 text-emerald-600" />
-              (903) 420 3976
+              (240) 918-1700
             </a>
             <button
               onClick={() => {

@@ -1,6 +1,7 @@
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { motion } from "motion/react";
-import cleaningStaff from "../assets/images/cleaning_specialist_1782628913400.jpg";
+import upholsteryCleaning from "../assets/images/upholstery_cleaning_1784816907791.jpg";
+import ScrollZoomImage from "./ScrollZoomImage";
 
 interface ContactInfoProps {
   onCallClick: () => void;
@@ -12,19 +13,19 @@ export default function ContactInfo({ onCallClick, onMessageClick }: ContactInfo
     {
       icon: <Phone className="h-4.5 w-4.5 text-emerald-600" />,
       title: "Phone",
-      val: "(903) 420 3976",
-      href: "tel:9034203976",
+      val: "(240) 918-1700",
+      href: "tel:2409181700",
     },
     {
       icon: <Mail className="h-4.5 w-4.5 text-emerald-600" />,
       title: "Email",
-      val: "saif219569@gmail.com",
-      href: "mailto:saif219569@gmail.com",
+      val: "Primecarpetsolutionllc@gmail.com",
+      href: "mailto:Primecarpetsolutionllc@gmail.com",
     },
     {
       icon: <MapPin className="h-4.5 w-4.5 text-emerald-600" />,
       title: "Location",
-      val: "Washington D.C. Area",
+      val: "Fredericksburg, Virginia",
       href: null,
     },
     {
@@ -82,7 +83,7 @@ export default function ContactInfo({ onCallClick, onMessageClick }: ContactInfo
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              Need Help With Your <span className="text-emerald-600">Property?</span>
+              Need Help With Your <span className="text-emerald-600">Sofas or Carpets?</span>
             </motion.h2>
             
             <motion.p 
@@ -92,7 +93,7 @@ export default function ContactInfo({ onCallClick, onMessageClick }: ContactInfo
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              Tell us what needs cleaning, and our team will help you choose the right botanical cleaning service for your home or business.
+              Tell us what needs steam cleaning, and our master technicians will help you choose the ideal botanical restoration package.
             </motion.p>
 
             {/* 2x2 Grid details */}
@@ -141,7 +142,7 @@ export default function ContactInfo({ onCallClick, onMessageClick }: ContactInfo
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <a
-                href="tel:9034203976"
+                href="tel:2409181700"
                 className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3.5 rounded-full font-sans text-sm font-semibold text-center shadow-sm hover:shadow transition-all duration-200 cursor-pointer hover:scale-102 active:scale-98"
               >
                 Call Now
@@ -156,31 +157,24 @@ export default function ContactInfo({ onCallClick, onMessageClick }: ContactInfo
           </div>
 
           {/* Right Column: Visual photo with quick badge */}
-          <motion.div 
-            className="lg:col-span-5 relative"
-            initial={{ opacity: 0, x: 40, scale: 0.95 }}
-            whileInView={{ opacity: 1, x: 0, scale: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          >
+          <div className="lg:col-span-5 relative">
             <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-white group">
-              <img
-                src={cleaningStaff}
-                alt="Friendly botanical cleaner"
-                className="w-full h-[320px] sm:h-[400px] md:h-[450px] object-cover group-hover:scale-103 transition-transform duration-700 ease-out"
-                referrerPolicy="no-referrer"
+              <ScrollZoomImage
+                src={upholsteryCleaning}
+                alt="Master upholstery technician steam cleaning sofa"
+                imgClassName="h-[320px] sm:h-[400px] md:h-[450px]"
               />
               
               {/* Badge Overlay */}
-              <div className="absolute top-4 right-4 bg-emerald-900/95 text-white text-[10px] font-mono tracking-wider uppercase font-semibold px-3.5 py-1.5 rounded-full backdrop-blur-sm">
+              <div className="absolute top-4 right-4 bg-emerald-900/95 text-white text-[10px] font-mono tracking-wider uppercase font-semibold px-3.5 py-1.5 rounded-full backdrop-blur-sm z-10">
                 Replies in under 5 min
               </div>
               
-              <div className="absolute bottom-4 left-4 bg-white/95 text-slate-900 text-[10px] font-mono tracking-wider uppercase font-bold px-4 py-2 rounded-xl shadow-md border border-slate-100 flex items-center gap-1.5 backdrop-blur-sm">
-                ⭐ Real local experts
+              <div className="absolute bottom-4 left-4 bg-white/95 text-slate-900 text-[10px] font-mono tracking-wider uppercase font-bold px-4 py-2 rounded-xl shadow-md border border-slate-100 flex items-center gap-1.5 backdrop-blur-sm z-10">
+                ⭐ Certified Upholstery Specialists
               </div>
             </div>
-          </motion.div>
+          </div>
 
         </div>
       </div>

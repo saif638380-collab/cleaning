@@ -1,6 +1,7 @@
-import { ShieldCheck, Heart, Sparkles, CalendarDays } from "lucide-react";
+import { ShieldCheck, Heart, Sparkles, Clock } from "lucide-react";
 import { motion } from "motion/react";
-import cleanBathroom from "../assets/images/clean_bathroom_1782628899155.jpg";
+import cleanCarpetRug from "../assets/images/clean_carpet_rug_1784816921458.jpg";
+import ScrollZoomImage from "./ScrollZoomImage";
 
 interface WhyChooseUsProps {
   onBookClick: () => void;
@@ -10,23 +11,23 @@ export default function WhyChooseUs({ onBookClick }: WhyChooseUsProps) {
   const highlights = [
     {
       icon: <Sparkles className="h-5 w-5 text-emerald-600" />,
-      title: "Eco-Friendly Botanical Products",
-      desc: "All-natural, plant-based essential oils. 100% safe for kids and pets.",
+      title: "Botanical Non-Toxic Cleanser",
+      desc: "Plant-derived biodegradable solutions free from harsh chemical detergents. 100% safe for toddlers and pets.",
+    },
+    {
+      icon: <Clock className="h-5 w-5 text-emerald-600" />,
+      title: "Fast 2-Hour Accelerated Drying",
+      desc: "Our industrial moisture extraction technology leaves carpets and sofas pleasantly fresh and dry in hours, not days.",
     },
     {
       icon: <ShieldCheck className="h-5 w-5 text-emerald-600" />,
-      title: "Skilled & Certified Cleaners",
-      desc: "Background checked, vetted, and trained to exceptional standards.",
+      title: "Master Certified Technicians",
+      desc: "Trained IICRC certified upholstery & carpet specialists vetted for fine fabrics, wool, velvet, and leather.",
     },
     {
       icon: <Heart className="h-5 w-5 text-emerald-600" />,
-      title: "Social Impact & Giving Back",
-      desc: "We provide free regular cleaning sessions to local cancer patients undergoing treatment.",
-    },
-    {
-      icon: <CalendarDays className="h-5 w-5 text-emerald-600" />,
-      title: "Simple Digital Scheduling",
-      desc: "Book, reschedule, or communicate in under 60 seconds with our online app.",
+      title: "Deep Allergen & Bacteria Elimination",
+      desc: "Hot water steam extraction sanitizes fibers, removing 99.2% of dust mites, pollen, and trapped pet allergens.",
     },
   ];
 
@@ -78,7 +79,7 @@ export default function WhyChooseUs({ onBookClick }: WhyChooseUsProps) {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              Why <span className="text-emerald-600">Ecoverde</span> Cleaning?
+              Why <span className="text-emerald-600">Prime Carpet Solution</span>?
             </motion.h2>
 
             <motion.div 
@@ -89,13 +90,13 @@ export default function WhyChooseUs({ onBookClick }: WhyChooseUsProps) {
               transition={{ duration: 0.6, delay: 0.1 }}
             >
               <p>
-                We have revolutionized the traditional cleaning service for the modern age, delivering impeccable cleaning standards through the convenience of online scheduling and friendly digital interactions.
+                Standard vacuuming only cleans the surface layer. Over time, your sofas and wall-to-wall carpets collect deep-seated dust, body oils, pet dander, and food spills deep inside the fibers.
               </p>
               <p>
-                Finding a top-notch cleaning service in Washington D.C. can be challenging—a service that meticulously attends to every corner, beneath the furniture, and behind doors.
+                At Prime Carpet Solution in Fredericksburg, Virginia, we use state-of-the-art steam extraction equipment combined with botanical non-toxic formulas. We clean without soapy residues that attract dirt back, ensuring your living room looks brand new and stays clean far longer.
               </p>
               <p>
-                What sets us apart is not just our dedication to a spotless home environment but our skilled technicians, our top customer support, and absolute reliability. As part of our <strong className="text-emerald-700 font-semibold">social mission</strong>, we contribute to our community by offering <span className="underline decoration-emerald-500/50 decoration-2 font-medium text-slate-800">free cleaning services to cancer patients</span>, reinforcing our commitment to not just clean homes but to also make a positive impact on lives.
+                Whether you need a sectional sofa restored before a family gathering or stubborn pet stains lifted from your wool carpet, our certified technicians treat your furniture with precision and care.
               </p>
             </motion.div>
 
@@ -107,35 +108,28 @@ export default function WhyChooseUs({ onBookClick }: WhyChooseUsProps) {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <div className="text-center sm:text-left">
-                <p className="font-serif text-lg font-bold text-slate-900 mb-1">Call our office today. Get your time back!</p>
-                <p className="font-mono text-xs text-emerald-600 font-semibold">ECOVERDE GUARANTEE ● 100% SATISFACTION</p>
+                <p className="font-serif text-lg font-bold text-slate-900 mb-1">Schedule your sofa or carpet revival today!</p>
+                <p className="font-mono text-xs text-emerald-600 font-semibold">PRIME CARPET GUARANTEE ● 100% SATISFACTION</p>
               </div>
               <button
                 onClick={onBookClick}
                 className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3.5 rounded-full font-sans text-sm font-semibold shadow-sm hover:shadow transition-all duration-200 shrink-0 whitespace-nowrap cursor-pointer hover:scale-102 active:scale-98"
               >
-                Book Now in 60 Seconds
+                Book Online in 60 Seconds
               </button>
             </motion.div>
           </div>
 
           {/* Right Column: Visual highlights list + image */}
           <div className="lg:col-span-5 space-y-8">
-            {/* Display clean bathroom photo */}
-            <motion.div 
-              className="rounded-2xl md:rounded-3xl overflow-hidden shadow-lg border border-slate-100 max-h-[300px]"
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8 }}
-            >
-              <img
-                src={cleanBathroom}
-                alt="Eco-friendly bathroom cleaning outcome"
-                className="w-full h-full object-cover hover:scale-103 transition-transform duration-500"
-                referrerPolicy="no-referrer"
+            {/* Display clean carpet photo */}
+            <div className="rounded-2xl md:rounded-3xl overflow-hidden shadow-lg border border-slate-100 h-[280px]">
+              <ScrollZoomImage
+                src={cleanCarpetRug}
+                alt="Immaculate clean carpet and plush sofa"
+                imgClassName="h-full"
               />
-            </motion.div>
+            </div>
 
             {/* Structured highlight boxes */}
             <motion.div 

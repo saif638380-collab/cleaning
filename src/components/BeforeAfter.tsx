@@ -1,12 +1,21 @@
 import { useState, useRef, useEffect } from "react";
 import { ArrowLeftRight } from "lucide-react";
-import { motion } from "motion/react";
-import cleanKitchenHero from "../assets/images/clean_kitchen_hero_1782628881148.jpg";
+import { motion, useScroll, useTransform } from "motion/react";
+import sofaCarpetHero from "../assets/images/sofa_carpet_hero_1784816891153.jpg";
 
 export default function BeforeAfter() {
   const [sliderPosition, setSliderPosition] = useState(50); // percentage (0 - 100)
   const containerRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
   const isDragging = useRef(false);
+
+  const { scrollYProgress } = useScroll({
+    target: scrollRef,
+    offset: ["start end", "end start"],
+  });
+
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.91, 1.06, 0.93]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.7, 1, 1, 0.75]);
 
   const handleMove = (clientX: number) => {
     if (!containerRef.current) return;
@@ -65,7 +74,7 @@ export default function BeforeAfter() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          Before & <span className="text-emerald-600">After.</span>
+          Sofa & Carpet Restoration <span className="text-emerald-600">Before & After.</span>
         </motion.h2>
         
         <motion.p 
@@ -75,47 +84,45 @@ export default function BeforeAfter() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          Drag the interactive slider below to see the incredible difference of our professional botanical deep cleaning.
+          Drag the interactive slider below to see how our hot water extraction removes set-in stains, food grease, and dirt from deep fabric fibers.
         </motion.p>
 
-        {/* Interactive Comparison Slider Container */}
-        <motion.div
-          ref={containerRef}
-          className="relative max-w-4xl mx-auto h-[350px] sm:h-[450px] md:h-[500px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl border border-slate-200 select-none cursor-ew-resize"
-          initial={{ opacity: 0, y: 35, scale: 0.98 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          onMouseDown={(e) => {
-            isDragging.current = true;
-            handleMove(e.clientX);
-          }}
-          onTouchStart={(e) => {
-            isDragging.current = true;
-            if (e.touches.length > 0) {
-              handleMove(e.touches[0].clientX);
-            }
-          }}
-          onMouseMove={(e) => {
-            if (isDragging.current) handleMove(e.clientX);
-          }}
-          onTouchMove={(e) => {
-            if (isDragging.current && e.touches.length > 0) {
-              handleMove(e.touches[0].clientX);
-            }
-          }}
-        >
+        {/* Interactive Comparison Slider Container with Scroll Zoom */}
+        <div ref={scrollRef} className="max-w-4xl mx-auto overflow-hidden">
+          <motion.div
+            ref={containerRef}
+            style={{ scale, opacity }}
+            className="relative w-full h-[350px] sm:h-[450px] md:h-[500px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl border border-slate-200 select-none cursor-ew-resize"
+            onMouseDown={(e) => {
+              isDragging.current = true;
+              handleMove(e.clientX);
+            }}
+            onTouchStart={(e) => {
+              isDragging.current = true;
+              if (e.touches.length > 0) {
+                handleMove(e.touches[0].clientX);
+              }
+            }}
+            onMouseMove={(e) => {
+              if (isDragging.current) handleMove(e.clientX);
+            }}
+            onTouchMove={(e) => {
+              if (isDragging.current && e.touches.length > 0) {
+                handleMove(e.touches[0].clientX);
+              }
+            }}
+          >
           {/* AFTER Image (Bottom / Base Layer) */}
           <div className="absolute inset-0 w-full h-full">
             <img
-              src={cleanKitchenHero}
-              alt="After deep cleaning spotless space"
+              src={sofaCarpetHero}
+              alt="After deep hot water steam extraction"
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
             />
             {/* After Label badge */}
             <div className="absolute bottom-6 right-6 bg-emerald-600 text-white font-sans text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-md z-10">
-              After
+              After (Clean & Restored)
             </div>
           </div>
 
@@ -124,17 +131,17 @@ export default function BeforeAfter() {
             className="absolute inset-0 w-full h-full overflow-hidden transition-all duration-75"
             style={{ width: `${sliderPosition}%` }}
           >
-            {/* We apply grayscale, sepia, slight blur, and contrast drops to look dusty, untidy & messy */}
+            {/* Grayscale, sepia, slight blur, and contrast drops to look stained and dirty */}
             <img
-              src={cleanKitchenHero}
-              alt="Before cleaning messy representation"
-              className="absolute inset-0 w-full h-full object-cover max-w-none grayscale saturate-75 sepia-30 brightness-75 contrast-90 filter blur-[0.7px]"
+              src={sofaCarpetHero}
+              alt="Before sofa & carpet cleaning"
+              className="absolute inset-0 w-full h-full object-cover max-w-none grayscale saturate-75 sepia-50 brightness-65 contrast-110 filter blur-[0.8px]"
               style={{ width: containerRef.current?.getBoundingClientRect().width }}
               referrerPolicy="no-referrer"
             />
             {/* Before Label badge */}
             <div className="absolute bottom-6 left-6 bg-slate-900/90 text-white font-sans text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-md z-10">
-              Before
+              Before (Dull & Stained)
             </div>
           </div>
 
@@ -149,6 +156,7 @@ export default function BeforeAfter() {
             </div>
           </div>
         </motion.div>
+        </div>
 
         {/* Tip */}
         <motion.p 
@@ -158,7 +166,7 @@ export default function BeforeAfter() {
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
         >
-          ← Swipe / drag the divider to compare the spotless finish →
+          ← Drag the divider to see the deep fiber steam extraction finish →
         </motion.p>
 
       </div>

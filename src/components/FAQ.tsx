@@ -7,20 +7,20 @@ export default function FAQ() {
 
   const faqs = [
     {
-      q: "What is your Great Clean Guarantee?",
-      a: "If you are not 100% satisfied with your cleaning, let us know within 24 hours and we will send our team back to reclean any areas of concern free of charge. Your absolute peace of mind is our highest priority.",
+      q: "How long does it take for sofas and carpets to dry after steam extraction?",
+      a: "Thanks to our high-powered moisture extraction technology, most carpets and upholstery dry in approximately 2 to 4 hours. Good airflow or ceiling fans can accelerate dry times even further.",
     },
     {
-      q: "Do you bring your own supplies and equipment?",
-      a: "Yes! We bring our own premium, eco-friendly, plant-based botanical formulas, certified HEPA vacuums, and clean microfiber towels. You don't need to provide a thing. Everything is entirely non-toxic and biodegradable.",
+      q: "Are your cleaning solutions safe for delicate fabrics like wool, velvet, or leather?",
+      a: "Yes! Our master technicians pre-inspect fabric codes (W, S, WS, X) before selecting the appropriate botanical pH-balanced cleaning approach, ensuring delicate wool rugs, velvet sectionals, and leather furniture are treated safely.",
     },
     {
-      q: "Do I need to be home for the cleaning appointment?",
-      a: "No! Most of our clients prefer to leave a key, garage code, or lockbox code. We take security extremely seriously, and all client keys are fully coded and locked securely in our office safes when not in active use.",
+      q: "Can you completely eliminate stubborn pet stains and urine odors?",
+      a: "Absolutely. We use deep enzymatic pre-treatments that break down organic uric acid salts trapped deep inside carpet fibers and sofa foam, neutralizing odors permanently at the source rather than just masking them.",
     },
     {
-      q: "How do you calculate your pricing?",
-      a: "Our pricing is transparent and depends on the estimated square footage, service selected (standard vs deep clean), and current condition of the property. There are absolutely no hidden fees or surprise upcharges.",
+      q: "How often should sofas and carpets be deep steam cleaned?",
+      a: "We recommend professional deep steam extraction every 6 to 12 months for active households, or every 3 to 6 months for homes with pets or allergy sufferers to remove trapped dust mites and pet dander.",
     },
   ];
 
@@ -72,11 +72,11 @@ export default function FAQ() {
             <div className="bg-emerald-900/60 p-6 rounded-2xl border border-emerald-800/50">
               <p className="font-sans text-xs text-emerald-300 font-semibold mb-2 uppercase tracking-wider">Direct Hotline</p>
               <a
-                href="tel:9034203976"
+                href="tel:2409181700"
                 className="inline-flex items-center gap-2.5 font-sans text-lg sm:text-xl font-bold text-white hover:text-amber-300 transition-colors"
               >
                 <Phone className="h-5 w-5 text-amber-400 animate-bounce" />
-                (903) 420-3976
+                (240) 918-1700
               </a>
             </div>
           </motion.div>

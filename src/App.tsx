@@ -12,7 +12,7 @@ import ContactInfo from "./components/ContactInfo";
 import Footer from "./components/Footer";
 
 export default function App() {
-  const [selectedService, setSelectedService] = useState("Standard Cleaning");
+  const [selectedService, setSelectedService] = useState("Sofa & Upholstery Steam Clean");
 
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
@@ -27,7 +27,7 @@ export default function App() {
   };
 
   const handleCallNow = () => {
-    window.location.href = "tel:9034203976";
+    window.location.href = "tel:2409181700";
   };
 
   return (

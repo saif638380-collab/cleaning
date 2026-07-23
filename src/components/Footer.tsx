@@ -21,16 +21,16 @@ export default function Footer({ onServicesClick, onContactClick }: FooterProps)
               </div>
               <div className="flex flex-col text-white">
                 <span className="font-sans font-bold text-lg leading-tight tracking-tight">
-                  ecoverde
+                  Prime Carpet Solution
                 </span>
                 <span className="font-mono text-[9px] uppercase tracking-widest text-emerald-400 font-semibold leading-none">
-                  cleaning
+                  Sofa & Carpet Restoration
                 </span>
               </div>
             </div>
             
             <p className="font-sans text-slate-400 text-xs sm:text-sm leading-relaxed max-w-sm">
-              Top-notch eco-friendly cleaning service in Washington D.C. with fast response times, botanical natural ingredients, pet-safe and baby-safe formulas, and absolute spotless results.
+              Top-notch eco-friendly sofa and carpet steam extraction service in Fredericksburg, Virginia with fast 2-hour dry times, botanical natural ingredients, pet-safe and baby-safe formulas, and absolute deep clean results.
             </p>
 
             <div className="flex items-center gap-2.5 text-[11px] font-mono text-emerald-400 font-semibold uppercase tracking-wider bg-emerald-950/50 w-fit px-3 py-1.5 rounded-lg border border-emerald-900/40">
@@ -76,14 +76,14 @@ export default function Footer({ onServicesClick, onContactClick }: FooterProps)
             <ul className="space-y-3 font-sans text-xs sm:text-sm">
               <li className="flex items-start gap-2.5">
                 <Phone className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                <a href="tel:9034203976" className="text-slate-400 hover:text-white transition-colors">
-                  (903) 420 3976
+                <a href="tel:2409181700" className="text-slate-400 hover:text-white transition-colors">
+                  (240) 918-1700
                 </a>
               </li>
               <li className="flex items-start gap-2.5">
                 <Mail className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                <a href="mailto:saif219569@gmail.com" className="text-slate-400 hover:text-white transition-colors truncate block max-w-[200px] sm:max-w-none">
-                  saif219569@gmail.com
+                <a href="mailto:Primecarpetsolutionllc@gmail.com" className="text-slate-400 hover:text-white transition-colors truncate block max-w-[200px] sm:max-w-none">
+                  Primecarpetsolutionllc@gmail.com
                 </a>
               </li>
               <li className="flex items-start gap-2.5">
@@ -95,7 +95,7 @@ export default function Footer({ onServicesClick, onContactClick }: FooterProps)
               <li className="flex items-start gap-2.5">
                 <MapPin className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
                 <span className="text-slate-400">
-                  Washington D.C. Metro Area
+                  Fredericksburg, Virginia
                 </span>
               </li>
             </ul>
