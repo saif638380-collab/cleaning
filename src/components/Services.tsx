@@ -1,4 +1,4 @@
-import { Check, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
 import upholsteryCleaningImg from "../assets/images/upholstery_cleaning_1784816907791.jpg";
 import ScrollZoomImage from "./ScrollZoomImage";
@@ -52,16 +52,6 @@ export default function Services({ onServiceSelect }: ServicesProps) {
     },
   };
 
-  const imageVariants = {
-    hidden: { opacity: 0, x: -40, scale: 0.95 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      scale: 1,
-      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
-    },
-  };
-
   const textVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -72,7 +62,7 @@ export default function Services({ onServiceSelect }: ServicesProps) {
   };
 
   return (
-    <section id="services" className="py-20 bg-slate-50/50 scroll-mt-20 overflow-hidden">
+    <section id="services" className="py-20 bg-slate-50 scroll-mt-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Badge */}
@@ -83,8 +73,8 @@ export default function Services({ onServiceSelect }: ServicesProps) {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
         >
-          <span className="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-800 text-[10px] font-bold tracking-widest uppercase px-3.5 py-1.5 rounded-full border border-emerald-100">
-            Specialized Care
+          <span className="inline-flex items-center gap-1.5 bg-blue-100/80 text-blue-900 text-[10px] font-bold tracking-widest uppercase px-3.5 py-1.5 rounded-full border border-blue-200">
+            Specialized Services
           </span>
         </motion.div>
 
@@ -92,7 +82,7 @@ export default function Services({ onServiceSelect }: ServicesProps) {
           
           {/* Left Column: Big Image & Badges */}
           <div className="lg:col-span-5 relative">
-            <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-white group">
+            <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-xl border border-slate-200 bg-white group">
               <ScrollZoomImage
                 src={upholsteryCleaningImg}
                 alt="Hot water steam extraction sofa cleaning specialist"
@@ -100,13 +90,13 @@ export default function Services({ onServiceSelect }: ServicesProps) {
               />
               
               {/* Badges overlaid on image */}
-              <div className="absolute top-4 left-4 bg-emerald-900/90 text-white text-[10px] font-mono tracking-wider uppercase font-semibold px-3.5 py-1.5 rounded-full backdrop-blur-sm z-10">
+              <div className="absolute top-4 left-4 bg-blue-950/90 text-white text-[10px] font-mono tracking-wider uppercase font-semibold px-3.5 py-1.5 rounded-full backdrop-blur-sm z-10 border border-blue-500/30">
                 Advanced Steam Extraction
               </div>
               
-              <div className="absolute bottom-4 right-4 bg-white/95 text-slate-900 text-[10px] font-mono tracking-wider uppercase font-bold px-4 py-2 rounded-xl shadow-md border border-slate-100 flex items-center gap-1.5 backdrop-blur-sm z-10">
-                <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                Certified Upholstery Techs
+              <div className="absolute bottom-4 right-4 bg-white/95 text-slate-900 text-[10px] font-mono tracking-wider uppercase font-bold px-4 py-2 rounded-xl shadow-md border border-slate-200 flex items-center gap-1.5 backdrop-blur-sm z-10">
+                <span className="inline-block w-2 h-2 rounded-full bg-lime-500 animate-pulse"></span>
+                Certified Technicians
               </div>
             </div>
           </div>
@@ -120,8 +110,8 @@ export default function Services({ onServiceSelect }: ServicesProps) {
               viewport={{ once: true, margin: "-100px" }}
             >
               <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 tracking-tight leading-tight mb-5 text-center md:text-left">
-                Expert Sofa & Carpet Care <br />
-                <span className="text-emerald-600 font-serif">Deep Cleaned & Restored.</span>
+                Expert Carpet & Upholstery Care <br />
+                <span className="text-blue-600 font-serif">Deep Cleaned & Restored.</span>
               </h2>
               
               <p className="font-sans text-slate-600 text-sm sm:text-base leading-relaxed mb-10 text-center md:text-left max-w-2xl">
@@ -142,14 +132,14 @@ export default function Services({ onServiceSelect }: ServicesProps) {
                   key={srv.num}
                   variants={cardVariants}
                   onClick={() => onServiceSelect(srv.title)}
-                  className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:border-emerald-100 transition-all duration-300 group cursor-pointer flex flex-col justify-between hover:scale-[1.01]"
+                  className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-300 group cursor-pointer flex flex-col justify-between hover:scale-[1.01]"
                 >
                   <div>
                     {/* Number badge */}
-                    <span className="font-mono text-emerald-600 text-xs font-semibold tracking-wider bg-emerald-50/50 px-2.5 py-1 rounded-md">
+                    <span className="font-mono text-blue-600 text-xs font-semibold tracking-wider bg-blue-50 px-2.5 py-1 rounded-md">
                       {srv.num}
                     </span>
-                    <h3 className="font-sans font-bold text-slate-800 text-lg mt-4 mb-2 group-hover:text-emerald-700 transition-colors">
+                    <h3 className="font-sans font-bold text-slate-800 text-lg mt-4 mb-2 group-hover:text-blue-600 transition-colors">
                       {srv.title}
                     </h3>
                     <p className="font-sans text-slate-500 text-xs sm:text-sm leading-relaxed">
@@ -157,7 +147,7 @@ export default function Services({ onServiceSelect }: ServicesProps) {
                     </p>
                   </div>
                   
-                  <div className="mt-5 flex items-center gap-1.5 text-xs font-semibold text-emerald-600 group-hover:translate-x-1.5 transition-transform">
+                  <div className="mt-5 flex items-center gap-1.5 text-xs font-semibold text-blue-600 group-hover:translate-x-1.5 transition-transform">
                     <span>Select Service</span>
                     <ArrowRight className="h-3.5 w-3.5" />
                   </div>
@@ -175,7 +165,7 @@ export default function Services({ onServiceSelect }: ServicesProps) {
             >
               <button
                 onClick={() => onServiceSelect("Sofa & Upholstery Steam Clean")}
-                className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3.5 rounded-full font-sans text-sm font-semibold shadow-sm hover:shadow transition-all duration-200 cursor-pointer hover:scale-102 active:scale-98"
+                className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white px-8 py-3.5 rounded-full font-sans text-sm font-semibold shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer hover:scale-102 active:scale-98"
               >
                 Estimate Your Price
               </button>

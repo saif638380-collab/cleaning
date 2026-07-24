@@ -11,25 +11,25 @@ interface ContactInfoProps {
 export default function ContactInfo({ onCallClick, onMessageClick }: ContactInfoProps) {
   const contacts = [
     {
-      icon: <Phone className="h-4.5 w-4.5 text-emerald-600" />,
+      icon: <Phone className="h-4.5 w-4.5 text-blue-600" />,
       title: "Phone",
       val: "(240) 918-1700",
       href: "tel:2409181700",
     },
     {
-      icon: <Mail className="h-4.5 w-4.5 text-emerald-600" />,
+      icon: <Mail className="h-4.5 w-4.5 text-blue-600" />,
       title: "Email",
       val: "Primecarpetsolutionllc@gmail.com",
       href: "mailto:Primecarpetsolutionllc@gmail.com",
     },
     {
-      icon: <MapPin className="h-4.5 w-4.5 text-emerald-600" />,
+      icon: <MapPin className="h-4.5 w-4.5 text-blue-600" />,
       title: "Location",
       val: "Fredericksburg, Virginia",
       href: null,
     },
     {
-      icon: <Clock className="h-4.5 w-4.5 text-emerald-600" />,
+      icon: <Clock className="h-4.5 w-4.5 text-blue-600" />,
       title: "Working Hours",
       val: "Mon-Sat, 8:00 AM - 5:00 PM",
       href: null,
@@ -67,7 +67,7 @@ export default function ContactInfo({ onCallClick, onMessageClick }: ContactInfo
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
         >
-          <span className="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-800 text-[10px] font-bold tracking-widest uppercase px-3.5 py-1.5 rounded-full border border-emerald-100">
+          <span className="inline-flex items-center gap-1.5 bg-blue-100/80 text-blue-900 text-[10px] font-bold tracking-widest uppercase px-3.5 py-1.5 rounded-full border border-blue-200">
             Contact Us
           </span>
         </motion.div>
@@ -83,7 +83,7 @@ export default function ContactInfo({ onCallClick, onMessageClick }: ContactInfo
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              Need Help With Your <span className="text-emerald-600">Sofas or Carpets?</span>
+              Need Help With Your <span className="text-blue-600">Sofas or Carpets?</span>
             </motion.h2>
             
             <motion.p 
@@ -108,10 +108,10 @@ export default function ContactInfo({ onCallClick, onMessageClick }: ContactInfo
                 <motion.div 
                   key={idx} 
                   variants={itemVariants}
-                  className="bg-slate-50/50 p-5 rounded-2xl border border-slate-100/80 hover:bg-emerald-50/10 hover:border-emerald-100/40 transition-all duration-300"
+                  className="bg-slate-50/50 p-5 rounded-2xl border border-slate-200 hover:bg-blue-50/40 hover:border-blue-200 transition-all duration-300"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="bg-emerald-50 p-2.5 rounded-xl h-fit text-emerald-600 mt-1">
+                    <div className="bg-blue-100/70 p-2.5 rounded-xl h-fit text-blue-600 mt-1">
                       {c.icon}
                     </div>
                     <div className="space-y-1">
@@ -119,7 +119,7 @@ export default function ContactInfo({ onCallClick, onMessageClick }: ContactInfo
                         {c.title}
                       </span>
                       {c.href ? (
-                        <a href={c.href} className="font-sans font-bold text-slate-800 text-sm sm:text-base hover:text-emerald-600 transition-colors block">
+                        <a href={c.href} className="font-sans font-bold text-slate-800 text-sm sm:text-base hover:text-blue-600 transition-colors block">
                           {c.val}
                         </a>
                       ) : (
@@ -143,9 +143,9 @@ export default function ContactInfo({ onCallClick, onMessageClick }: ContactInfo
             >
               <a
                 href="tel:2409181700"
-                className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3.5 rounded-full font-sans text-sm font-semibold text-center shadow-sm hover:shadow transition-all duration-200 cursor-pointer hover:scale-102 active:scale-98"
+                className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white px-8 py-3.5 rounded-full font-sans text-sm font-semibold text-center shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer hover:scale-102 active:scale-98"
               >
-                Call Now
+                Call (240) 918-1700
               </a>
               <button
                 onClick={onMessageClick}
@@ -158,7 +158,7 @@ export default function ContactInfo({ onCallClick, onMessageClick }: ContactInfo
 
           {/* Right Column: Visual photo with quick badge */}
           <div className="lg:col-span-5 relative">
-            <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-white group">
+            <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-xl border border-slate-200 bg-white group">
               <ScrollZoomImage
                 src={upholsteryCleaning}
                 alt="Master upholstery technician steam cleaning sofa"
@@ -166,11 +166,11 @@ export default function ContactInfo({ onCallClick, onMessageClick }: ContactInfo
               />
               
               {/* Badge Overlay */}
-              <div className="absolute top-4 right-4 bg-emerald-900/95 text-white text-[10px] font-mono tracking-wider uppercase font-semibold px-3.5 py-1.5 rounded-full backdrop-blur-sm z-10">
+              <div className="absolute top-4 right-4 bg-blue-950/90 border border-blue-500/30 text-white text-[10px] font-mono tracking-wider uppercase font-semibold px-3.5 py-1.5 rounded-full backdrop-blur-sm z-10">
                 Replies in under 5 min
               </div>
               
-              <div className="absolute bottom-4 left-4 bg-white/95 text-slate-900 text-[10px] font-mono tracking-wider uppercase font-bold px-4 py-2 rounded-xl shadow-md border border-slate-100 flex items-center gap-1.5 backdrop-blur-sm z-10">
+              <div className="absolute bottom-4 left-4 bg-white/95 text-slate-900 text-[10px] font-mono tracking-wider uppercase font-bold px-4 py-2 rounded-xl shadow-md border border-slate-200 flex items-center gap-1.5 backdrop-blur-sm z-10">
                 ⭐ Certified Upholstery Specialists
               </div>
             </div>

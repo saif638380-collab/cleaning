@@ -10,22 +10,22 @@ interface WhyChooseUsProps {
 export default function WhyChooseUs({ onBookClick }: WhyChooseUsProps) {
   const highlights = [
     {
-      icon: <Sparkles className="h-5 w-5 text-emerald-600" />,
+      icon: <Sparkles className="h-5 w-5 text-blue-600" />,
       title: "Botanical Non-Toxic Cleanser",
       desc: "Plant-derived biodegradable solutions free from harsh chemical detergents. 100% safe for toddlers and pets.",
     },
     {
-      icon: <Clock className="h-5 w-5 text-emerald-600" />,
-      title: "Fast 2-Hour Accelerated Drying",
+      icon: <Clock className="h-5 w-5 text-blue-600" />,
+      title: "Fast Accelerated Drying",
       desc: "Our industrial moisture extraction technology leaves carpets and sofas pleasantly fresh and dry in hours, not days.",
     },
     {
-      icon: <ShieldCheck className="h-5 w-5 text-emerald-600" />,
+      icon: <ShieldCheck className="h-5 w-5 text-blue-600" />,
       title: "Master Certified Technicians",
       desc: "Trained IICRC certified upholstery & carpet specialists vetted for fine fabrics, wool, velvet, and leather.",
     },
     {
-      icon: <Heart className="h-5 w-5 text-emerald-600" />,
+      icon: <Heart className="h-5 w-5 text-blue-600" />,
       title: "Deep Allergen & Bacteria Elimination",
       desc: "Hot water steam extraction sanitizes fibers, removing 99.2% of dust mites, pollen, and trapped pet allergens.",
     },
@@ -67,7 +67,7 @@ export default function WhyChooseUs({ onBookClick }: WhyChooseUsProps) {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5 }}
             >
-              <span className="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-800 text-[10px] font-bold tracking-widest uppercase px-3.5 py-1.5 rounded-full border border-emerald-100">
+              <span className="inline-flex items-center gap-1.5 bg-blue-100/80 text-blue-900 text-[10px] font-bold tracking-widest uppercase px-3.5 py-1.5 rounded-full border border-blue-200">
                 Why Choose Us
               </span>
             </motion.div>
@@ -79,7 +79,7 @@ export default function WhyChooseUs({ onBookClick }: WhyChooseUsProps) {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              Why <span className="text-emerald-600">Prime Carpet Solution</span>?
+              Why <span className="text-blue-600">Prime Carpet Solution LLC</span>?
             </motion.h2>
 
             <motion.div 
@@ -93,7 +93,7 @@ export default function WhyChooseUs({ onBookClick }: WhyChooseUsProps) {
                 Standard vacuuming only cleans the surface layer. Over time, your sofas and wall-to-wall carpets collect deep-seated dust, body oils, pet dander, and food spills deep inside the fibers.
               </p>
               <p>
-                At Prime Carpet Solution in Fredericksburg, Virginia, we use state-of-the-art steam extraction equipment combined with botanical non-toxic formulas. We clean without soapy residues that attract dirt back, ensuring your living room looks brand new and stays clean far longer.
+                At Prime Carpet Solution LLC in Fredericksburg, Virginia, we use state-of-the-art steam extraction equipment combined with botanical non-toxic formulas. We clean without soapy residues that attract dirt back, ensuring your living room looks brand new and stays clean far longer.
               </p>
               <p>
                 Whether you need a sectional sofa restored before a family gathering or stubborn pet stains lifted from your wool carpet, our certified technicians treat your furniture with precision and care.
@@ -109,11 +109,11 @@ export default function WhyChooseUs({ onBookClick }: WhyChooseUsProps) {
             >
               <div className="text-center sm:text-left">
                 <p className="font-serif text-lg font-bold text-slate-900 mb-1">Schedule your sofa or carpet revival today!</p>
-                <p className="font-mono text-xs text-emerald-600 font-semibold">PRIME CARPET GUARANTEE ● 100% SATISFACTION</p>
+                <p className="font-mono text-xs text-blue-600 font-semibold">PRIME CARPET SOLUTION LLC GUARANTEE ● 100% SATISFACTION</p>
               </div>
               <button
                 onClick={onBookClick}
-                className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3.5 rounded-full font-sans text-sm font-semibold shadow-sm hover:shadow transition-all duration-200 shrink-0 whitespace-nowrap cursor-pointer hover:scale-102 active:scale-98"
+                className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white px-8 py-3.5 rounded-full font-sans text-sm font-semibold shadow-md hover:shadow-lg transition-all duration-200 shrink-0 whitespace-nowrap cursor-pointer hover:scale-102 active:scale-98"
               >
                 Book Online in 60 Seconds
               </button>
@@ -143,9 +143,9 @@ export default function WhyChooseUs({ onBookClick }: WhyChooseUsProps) {
                 <motion.div 
                   key={idx} 
                   variants={listItemVariants}
-                  className="flex gap-4 p-4 rounded-xl border border-slate-50 bg-slate-50/30 hover:bg-emerald-50/10 hover:border-emerald-100/50 transition-all duration-300"
+                  className="flex gap-4 p-4 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-blue-50/40 hover:border-blue-200 transition-all duration-300"
                 >
-                  <div className="bg-emerald-50 p-2.5 rounded-lg h-fit text-emerald-600">
+                  <div className="bg-blue-100/70 p-2.5 rounded-lg h-fit text-blue-600">
                     {hl.icon}
                   </div>
                   <div>

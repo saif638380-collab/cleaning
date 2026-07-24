@@ -1,6 +1,6 @@
 {
-  "name": "Prime Carpet Solution",
-  "description": "Prime Carpet Solution - Premium sofa, upholstery, rug and carpet steam cleaning in Fredericksburg, Virginia.",
+  "name": "Prime Carpet Solution LLC",
+  "description": "Prime Carpet Solution LLC - Premium sofa, upholstery, rug and carpet steam cleaning in Fredericksburg, Virginia.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

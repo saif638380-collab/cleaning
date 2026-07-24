@@ -10,19 +10,19 @@ export default function HowItWorks({ onQuoteClick, onCallClick }: HowItWorksProp
   const steps = [
     {
       num: "01",
-      icon: <CalendarDays className="h-6 w-6 text-emerald-600" />,
+      icon: <CalendarDays className="h-6 w-6 text-blue-600" />,
       title: "Schedule Your Service",
       desc: "Select your sofa size or carpet room count and choose a convenient time slot online.",
     },
     {
       num: "02",
-      icon: <Sparkles className="h-6 w-6 text-emerald-600" />,
+      icon: <Sparkles className="h-6 w-6 text-blue-600" />,
       title: "Deep Steam Extraction",
       desc: "Our master technicians pre-treat stains and extract deep-seated dirt with non-toxic botanical solutions.",
     },
     {
       num: "03",
-      icon: <Armchair className="h-6 w-6 text-emerald-600" />,
+      icon: <Armchair className="h-6 w-6 text-blue-600" />,
       title: "Enjoy Fresh Furniture",
       desc: "Relax on clean, restored sofas and soft allergen-free carpets with fast 2-hour dry times.",
     },
@@ -60,7 +60,7 @@ export default function HowItWorks({ onQuoteClick, onCallClick }: HowItWorksProp
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
         >
-          <span className="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-800 text-[10px] font-bold tracking-widest uppercase px-3.5 py-1.5 rounded-full border border-emerald-100">
+          <span className="inline-flex items-center gap-1.5 bg-blue-100/80 text-blue-900 text-[10px] font-bold tracking-widest uppercase px-3.5 py-1.5 rounded-full border border-blue-200">
             Simple 3-Step Process
           </span>
         </motion.div>
@@ -72,7 +72,7 @@ export default function HowItWorks({ onQuoteClick, onCallClick }: HowItWorksProp
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          Revitalize Your Living Space <span className="text-emerald-600 font-serif">In 3 Easy Steps</span>
+          Revitalize Your Living Space <span className="text-blue-600 font-serif">In 3 Easy Steps</span>
         </motion.h2>
         
         <motion.p 
@@ -104,11 +104,11 @@ export default function HowItWorks({ onQuoteClick, onCallClick }: HowItWorksProp
               className="relative z-10 flex flex-col items-center group"
             >
               {/* Step Icon & Badge */}
-              <div className="h-14 w-14 rounded-full bg-slate-50 border border-slate-100 text-emerald-600 flex items-center justify-center shadow-sm mb-6 group-hover:border-emerald-300 group-hover:bg-emerald-50/20 transition-all duration-300">
+              <div className="h-14 w-14 rounded-full bg-slate-50 border border-slate-200 text-blue-600 flex items-center justify-center shadow-sm mb-6 group-hover:border-blue-300 group-hover:bg-blue-50/40 transition-all duration-300">
                 {step.icon}
               </div>
 
-              <span className="font-mono text-xs font-semibold text-emerald-600 uppercase tracking-widest mb-2 block">
+              <span className="font-mono text-xs font-semibold text-blue-600 uppercase tracking-widest mb-2 block">
                 Step {step.num}
               </span>
               
@@ -133,7 +133,7 @@ export default function HowItWorks({ onQuoteClick, onCallClick }: HowItWorksProp
         >
           <button
             onClick={onQuoteClick}
-            className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3.5 rounded-full font-sans text-sm font-semibold shadow-sm hover:shadow transition-all duration-200 cursor-pointer hover:scale-102 active:scale-98"
+            className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white px-8 py-3.5 rounded-full font-sans text-sm font-semibold shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer hover:scale-102 active:scale-98"
           >
             Get a Free Estimate
           </button>
@@ -141,7 +141,7 @@ export default function HowItWorks({ onQuoteClick, onCallClick }: HowItWorksProp
             onClick={onCallClick}
             className="w-full sm:w-auto bg-white border border-slate-200 text-slate-800 hover:bg-slate-50 px-8 py-3.5 rounded-full font-sans text-sm font-semibold shadow-sm transition-all duration-200 cursor-pointer hover:scale-102 active:scale-98"
           >
-            Call Now
+            Call (240) 918-1700
           </button>
         </motion.div>
 

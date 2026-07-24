@@ -50,32 +50,32 @@ export default function FAQ() {
           
           {/* Left Column: Call out card */}
           <motion.div 
-            className="lg:col-span-5 bg-gradient-to-br from-emerald-800 to-emerald-950 text-white p-8 sm:p-10 rounded-3xl border border-emerald-800 shadow-xl flex flex-col justify-between space-y-8"
+            className="lg:col-span-5 bg-slate-950 text-white p-8 sm:p-10 rounded-3xl border border-slate-800 shadow-xl flex flex-col justify-between space-y-8"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="space-y-4">
-              <div className="inline-flex items-center gap-1.5 bg-emerald-700/60 text-emerald-200 text-[10px] font-mono tracking-widest uppercase px-3.5 py-1.5 rounded-full border border-emerald-600/50">
+              <div className="inline-flex items-center gap-1.5 bg-blue-950 text-blue-300 text-[10px] font-mono tracking-widest uppercase px-3.5 py-1.5 rounded-full border border-blue-800/60">
                 Got Questions? We've Got Answers
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight">
                 Common <br />
-                <span className="text-amber-400 font-serif">Questions.</span>
+                <span className="text-lime-400 font-serif">Questions.</span>
               </h2>
-              <p className="font-sans text-sm text-emerald-100/80 leading-relaxed">
+              <p className="font-sans text-sm text-slate-300 leading-relaxed">
                 We're open and transparent about how we work. If you have any additional questions about our process, staff, or botanical supplies, please call our support team directly.
               </p>
             </div>
 
-            <div className="bg-emerald-900/60 p-6 rounded-2xl border border-emerald-800/50">
-              <p className="font-sans text-xs text-emerald-300 font-semibold mb-2 uppercase tracking-wider">Direct Hotline</p>
+            <div className="bg-slate-900 p-6 rounded-2xl border border-slate-800">
+              <p className="font-sans text-xs text-blue-400 font-semibold mb-2 uppercase tracking-wider">Direct Hotline</p>
               <a
                 href="tel:2409181700"
-                className="inline-flex items-center gap-2.5 font-sans text-lg sm:text-xl font-bold text-white hover:text-amber-300 transition-colors"
+                className="inline-flex items-center gap-2.5 font-sans text-lg sm:text-xl font-bold text-white hover:text-lime-400 transition-colors"
               >
-                <Phone className="h-5 w-5 text-amber-400 animate-bounce" />
+                <Phone className="h-5 w-5 text-lime-400 animate-bounce" />
                 (240) 918-1700
               </a>
             </div>
@@ -95,19 +95,19 @@ export default function FAQ() {
                 <motion.div
                   key={idx}
                   variants={listItemVariants}
-                  className="bg-white border border-slate-100 rounded-2xl shadow-sm overflow-hidden transition-all duration-300"
+                  className="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden transition-all duration-300"
                 >
                   <button
                     onClick={() => setOpenIndex(isOpen ? null : idx)}
                     className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-sans font-bold text-slate-800 text-sm sm:text-base hover:bg-slate-50 transition-colors"
                   >
                     <span className="flex items-center gap-3">
-                      <HelpCircle className="h-5 w-5 text-emerald-600 shrink-0" />
+                      <HelpCircle className="h-5 w-5 text-blue-600 shrink-0" />
                       {faq.q}
                     </span>
                     <ChevronDown
                       className={`h-5 w-5 text-slate-400 transition-transform duration-300 shrink-0 ${
-                        isOpen ? "transform rotate-180 text-emerald-600" : ""
+                        isOpen ? "transform rotate-180 text-blue-600" : ""
                       }`}
                     />
                   </button>
@@ -121,7 +121,7 @@ export default function FAQ() {
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                         className="overflow-hidden"
                       >
-                        <div className="px-6 pb-6 pt-1 border-t border-slate-50 font-sans text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        <div className="px-6 pb-6 pt-1 border-t border-slate-100 font-sans text-xs sm:text-sm text-slate-600 leading-relaxed">
                           {faq.a}
                         </div>
                       </motion.div>
