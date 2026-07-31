@@ -48,17 +48,36 @@ export default function BookingForm({ selectedService }: BookingFormProps) {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!formData.fullName || !formData.phone || !formData.email) {
       alert("Please fill in your Name, Phone, and Email to receive your estimate.");
       return;
     }
     setLoading(true);
-    setTimeout(() => {
+
+    try {
+      const response = await fetch("/api/quote", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formData,
+          estimatedPrice: getEstimation(),
+        }),
+      });
+
+      const data = await response.json();
+      if (!response.ok) {
+        console.error("API error submitting quote:", data);
+      }
+    } catch (err) {
+      console.error("Error submitting quote:", err);
+    } finally {
       setLoading(false);
       setSubmitted(true);
-    }, 1200);
+    }
   };
 
   return (
